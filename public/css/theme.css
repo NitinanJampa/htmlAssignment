@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+h1,
+h2,
+h3,
+h4,
+legend {
+    color: black;
+    text-decoration: underline;
+    font-family: 'Mynerve', cursive;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+.navbar-brand {
+    color: white !important;
+    font-weight: bold;
+    font: 300;
+    font-family: Rampart One;
+}
+
+label,
+p,
+li,
+h5 {
+    color: white;
+    font-weight: bold;
+}
+
+caption {
+    color: white;
+}
+
+.btn-primary {
+    border-color: white;
+    background-color: greenyellow;
+    color: black;
+}
+
+.btn-primary:hover {
+    border-color: black;
+    background-color: #42ff29;
+}
+
+.nav-link {
+    color: whitesmoke !important;
+    font-family: "Press Start 2P";
+}
+
+.nav-link :hover {
+    /* the em element inside the element with id="p3" when the mouse is over it */
+    color: #42ff29;
+}
+
+html {
+    background: #333333;
+    /* fallback color */
+}
+
+body {
+    background: #cccccc;
+    /* fallback color */
+    background: linear-gradient(to bottom, #818181, #333333);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-light {
+    background: #333333 !important;
+}
+
+a:link {
+    /* all link <a> elements */
+    text-decoration: none;
+}
+
+a:hover {
+    /* <a> elements that currently have the mouse over them */
+    text-decoration: underline;
+}
+
+a:visited {
+    /* <a> elements that have been visited */
+    text-rendering: black;
+    color: #42ff29;
+}
+
+a:active {
+    /* <a> elements that currently have mouse pressed on them */
+    text-shadow: 2px 2px 2px #66ff52;
+}
+
+.table1 thead tr,.table1 tfoot tr{
+    background-color: #333333!important;
+    color: orange;
+}
+
+.table1 tr:nth-child(even) {
+    background-color: #66ff52;
+}
+
+.table1 tr:nth-child(odd) {
+    background-color: #b2ffa8;
+}
