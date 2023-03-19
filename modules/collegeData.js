@@ -120,6 +120,21 @@ function getCourses() {
     });
 }
 
+function getCourseByID(courseID) {
+    return new Promise(function (resolve, reject) {
+        let courseByID = dataCollection.courses[dataCollection.courses.findIndex(course => course.courseId == courseID)];
+        if (courseByID != null) {
+            return resolve(courseByID);
+        } else {
+            console.log("empty courseData");
+            return reject();
+        }
+    }).catch(function (err) {
+        console.log("there was an error in collegeData.js: at getCourseByID()");
+        return reject();
+    });
+}
+
 function getStudentsByCourse(course) {
     return new Promise(function (resolve, reject) {
         let studentInCourse = dataCollection.students.filter(function (studentInCourse) {
@@ -139,10 +154,8 @@ function getStudentsByCourse(course) {
 
 function getStudentByNum(num) {
     return new Promise(function (resolve, reject) {
-        let matchStudent = dataCollection.students.filter(function (matchStudent) {
-            return matchStudent.studentNum == num;
-        });
-        if (matchStudent.length > 0) {
+        let matchStudent = dataCollection.students[dataCollection.students.findIndex(student => student.studentNum == num)];
+        if (matchStudent != null) {
             return resolve(matchStudent);
         } else {
             console.log("empty matchStudent data");
@@ -171,8 +184,8 @@ function addStudent(studentData) {
                     addressStreet: studentData.street,
                     addressCity: studentData.city,
                     addressProvince: studentData.province,
-                    TA: studentData.ta == "on" ? true : false,
-                    status: studentData.enrollment,
+                    TA: studentData.TA == "on" ? true : false,
+                    status: studentData.status,
                     course: studentData.course
                 });
                 addedData = JSON.stringify(readData);
@@ -191,12 +204,55 @@ function addStudent(studentData) {
     });
 }
 
+function updateStudent(studentData) {
+    const fs = require('fs');
+    const fsPromises = require('fs').promises;
+    return new Promise(function (resolve, reject) {
+        fs.readFile('./data/students.json', 'utf8', function readFileCallback(err, data) {
+            if (err) {
+                reject(err);
+            } else {
+                let readData = JSON.parse(data);
+                let target = readStudentData.findIndex(student => student.studentNum == studentData.studentNum);
+                if(target != null){
+                    readData[target].firstName = studentData.firstName;
+                    readData[target].lastName = studentData.lastName;
+                    readData[target].email = studentData.email;
+                    readData[target].addressStreet = studentData.addressStreet;
+                    readData[target].addressCity = studentData.addressCity;
+                    readData[target].addressProvince = studentData.addressProvince;
+                    readData[target].TA = (studentData.TA != null ? true : false);
+                    console.log(studentData.TA);
+                    readData[target].status = studentData.status;
+                    readData[target].course = studentData.course;
+                }else{
+                    console.log("studentData not found at updateStudent");
+                    reject();
+                }
+                readData = JSON.stringify(readData);
+
+                (async function wrtie() {
+                    try {
+                        await fsPromises.writeFile("./data/students.json", readData)
+                    } catch (err) {
+                        console.error(err);
+                    }
+                })().then(resolve());
+            }
+        });
+    }).catch(function (err) {
+        reject(err);
+    });
+}
+
 module.exports = {
     initialize,
     getAllStudents,
     getTAs,
     getCourses,
+    getCourseByID,
     getStudentsByCourse,
     getStudentByNum,
-    addStudent
+    addStudent,
+    updateStudent
 };

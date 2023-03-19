@@ -19,15 +19,22 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+				{{#navLink "/"}}Home{{/navLink}}
+				{{#navLink "/about"}}About{{/navLink}}
+				{{#navLink "/htmlDemo"}}Html Demo{{/navLink}}
+				{{!-- <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
 				<li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-				<li class="nav-item"><a class="nav-link" href="/htmlDemo">Html Demo</a></li>
+				<li class="nav-item"><a class="nav-link" href="/htmlDemo">Html Demo</a></li> --}}
 			</ul>
 			<ul class="navbar-nav ml-auto">
-				<li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
+				{{#navLink "/students"}}Students{{/navLink}}
+				{{#navLink "/tas"}}Teaching Assistants{{/navLink}}
+				{{#navLink "/courses"}}Courses{{/navLink}}
+				{{#navLink "/students/add"}}Add Students{{/navLink}}
+				{{!-- <li class="nav-item"><a class="nav-link" href="/students">Students</a></li>
 				<li class="nav-item"><a class="nav-link" href="/tas">Teaching Assistants</a></li>
 				<li class="nav-item"><a class="nav-link" href="/courses">Courses</a></li>
-				<li class="nav-item"><a class="nav-link" href="/students/add">Add Students</a></li>
+				<li class="nav-item"><a class="nav-link" href="/students/add">Add Students</a></li> --}}
 			</ul>
 		</div>
 	</nav>
@@ -35,36 +42,8 @@
 	<div class="container">
 		<div class="row">
 			<main class="col-md-12">
-
-
-
 				<!-- Start your code here -->
-				<h2>Welcome to my website</h2>
-				<p>I will be demonstrating HTML5 principles
-					and techniques, Routing in Express
-				</p>
-
-				<p>This site consists of 3 static views (Home,
-					About, HTML Demo) as well as 5 routes that supply data , including: All Students, Students by
-					Course, A Single
-					Student By Student Number, All TAs and All Courses</p>
-
-
-				<h3>data Link</h3>
-				<ul>
-					<li><a href="http://localhost:8080/tas">Teacher Assistants</a></li>
-					<li><a href="http://localhost:8080/students">All Students</a></li>
-					<li><a href="http://localhost:8080/courses">Course</a></li>
-					<li><a href="http://localhost:8080/student/22">Student num: 22</a></li>
-					<li><a href="http://localhost:8080/students?course=7">Student in Course 7</a></li>
-				</ul>
-
-				<h3>view Link</h3>
-				<ul>
-					<li><a href="http://localhost:8080/htmlDemo">Demo</a></li>
-					<li><a href="http://localhost:8080/404">error page test</a></li>
-					<li><a href="http://localhost:8080/about">about</a></li>
-				</ul>
+				{{{body}}}
 				<!-- End your code here  -->
 				</p>
 		</div>

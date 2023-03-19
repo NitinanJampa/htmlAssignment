@@ -20,6 +20,11 @@ legend {
     font-family: Rampart One;
 }
 
+h6 {
+    color: black;
+    text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 label,
 p,
 li,
@@ -91,8 +96,9 @@ a:active {
     text-shadow: 2px 2px 2px #66ff52;
 }
 
-.table1 thead tr,.table1 tfoot tr{
-    background-color: #333333!important;
+.table1 thead tr,
+.table1 tfoot tr {
+    background-color: #333333 !important;
     color: orange;
 }
 
@@ -102,4 +108,99 @@ a:active {
 
 .table1 tr:nth-child(odd) {
     background-color: #b2ffa8;
+}
+
+strong {
+    color: orange;
+}
+
+.table2 thead tr,
+.table2 tfoot tr {
+    background-color: #333333 !important;
+    color: orange;
+}
+
+.table2 tr:nth-child(even) {
+    background-color: #cccccc;
+}
+
+.table2 tr:nth-child(odd) {
+    background-color: #8d8d8d;
+}
+
+/* move from htmldemo  */
+table,
+th,
+td {
+    border: 1px solid #000000;
+}
+
+thead {
+    border: 3px solid #000000;
+}
+
+.tg {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.tg td {
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.tg th {
+    border-color: #000000;
+    border-style: solid;
+    border-width: 1px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    overflow: hidden;
+    padding: 10px 5px;
+    word-break: normal;
+}
+
+.gray {
+    background-color: #9b9b9b;
+}
+
+.red {
+    background-color: #fe0000;
+}
+
+.skintone {
+    background-color: #ffe896;
+    border: none;
+}
+
+.brightgreen {
+    background-color: #17f230;
+    border: none;
+}
+
+.green {
+    background-color: #03d21b;
+    border: none;
+}
+
+.white {
+    background-color: #ffffff;
+    border: none;
+}
+
+.black {
+    background-color: #000000;
+}
+
+.lightgray {
+    background-color: #656565;
+    text-align: left;
+    vertical-align: top
 }
