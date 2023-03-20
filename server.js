@@ -137,6 +137,7 @@ collegeData.initialize().then(function () {
 
     app.get("/student/:num", (req, res) => {
         collegeData.getStudentByNum(req.params.num).then((returnedArray) => {
+            console.log(returnedArray);
             res.render('student', {
                 student: returnedArray,
                 layout: "main"
