@@ -2,18 +2,20 @@
     <div class="col-md-12">
         <br>
         <h2>Students</h2>
+        <a href="/students/add" class="btn btn-success float-right">Add New Student</a>
         <hr />
         {{#if students}}
         <div class="table-responsive">
             <table class="table2">
                 <thead>
                     <tr>
-                        <th>Student&nbsp;Num</th>
-                        <th>Full&nbsp;Name</th>
+                        <th>Student Num</th>
+                        <th>Full Name</th>
                         <th>Email</th>
                         <th>Address</th>
                         <th>Status</th>
                         <th>Course ID</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +27,7 @@
                         <td>{{addressStreet}} {{addressCity}} {{addressProvince}}</td>
                         <td>{{status}}</td>
                         <td><a href="/students?course={{course}}">{{course}}</a></td>
+                        <td><a href="/student/delete/{{studentNum}}" class="btn btn-danger">remove</td>
                     </tr>
                     {{/each}}
                 </tbody>
